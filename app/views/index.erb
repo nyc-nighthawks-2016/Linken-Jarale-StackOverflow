@@ -1,3 +1,18 @@
 <div class="content">
   <p class="top_questions">Top Questions<p>
+  <% @last_ten_posts = Post.all.last(10) %>
+  <% @last_ten_posts.each do |post| %>
+    <br><article class ="single_post">
+      <p><div class="vote_count"><%= post.votes.count %><br>votes<br></div>
+        <div class="answer_count"><%= post.answers.count %>
+        <% if post.answers.count == 1 %>
+            <br>answer</br>
+        <% else %>
+            <br>answers</br>
+        <%end%>
+        </div>
+        <div class="post_title">
+      <%= post.title %></p></div></p>
+    </article>
+  <% end %>
 </div>
