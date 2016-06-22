@@ -3,7 +3,9 @@
   <% @last_ten_posts = Post.order(created_at: :desc).limit(10) %>
   <% @last_ten_posts.each do |post| %>
     <br><article class ="single_post">
-      <p><div class="vote_count"><%= post.votes.count %><br>votes<br></div>
+      <p>
+      <section class="title_container">
+        <div class="vote_count"><%= post.votes.count %><br>votes<br></div>
         <div class="answer_count"><%= post.answers.count %>
         <% if post.answers.count == 1 %>
             <br>answer</br>
@@ -11,8 +13,19 @@
             <br>answers</br>
         <%end%>
         </div>
+      </section>
+
+      <section class = "title_container">
         <div class="post_title">
-      <%= post.title %></p></div></p>
-    </article>
+          <a class='post_links' href = 'posts/show'><%= post.title %></a></p></div><br>
+          <span class="">
+          <% if post.tags %>
+           <% post.tags.each do |tag| %>
+            <a class="tags" href="/tags/<%= tag.id %>"><%= tag.name %></a>
+            <% end %>
+          <% end %>
+          </span></p>
+      </section>
+      </article>
   <% end %>
 </div>
