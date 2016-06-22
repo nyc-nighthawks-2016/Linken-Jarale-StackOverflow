@@ -99,6 +99,26 @@ body {
 }
 
 .single_post {
+    width: 1075px;
+    position: relative;
+    display: inline-block;
+    border-top: 1px solid #e4e6e8;
     border-bottom: 1px solid #e4e6e8;
     font-size: 16px;
+}
+
+.post_title {
+    display: inline-block;
+}
+
+.answer_count {
+    text-align: center;
+    color: #848d95;
+    display: inline-block;
+}
+
+.vote_count {
+    text-align: center;
+    color: #848d95;
+    display: inline-block;
 }
