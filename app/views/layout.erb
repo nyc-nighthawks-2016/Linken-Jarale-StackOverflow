@@ -16,7 +16,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title>Stackoverflow</title>
+  <title>Linken-Jarale Overflow</title>
 </head>
 <body>
   <div class ="navigation">
@@ -32,8 +32,13 @@
           <input type="hidden" name="sitesearch" value="yoursite.com" /></td></tr>
           </table>
         </form></li>
-        <li><a href="/users/new">sign up</a></li>
-        <li><a href="/sessions/login">log in</a></li>
+          <% if logged_in? %>
+            <li><a href="/session/logout">log out</a>
+            <li><a href="/users/show"><%= current_user.display_name %></a>
+          <% else %>
+            <li><a href="/session/login">log in</a></li>
+            <li><a href="/users/new">sign up</a></li>
+          <% end %>
       </ul>
   </div>
 
