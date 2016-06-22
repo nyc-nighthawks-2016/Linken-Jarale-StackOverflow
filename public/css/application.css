@@ -122,3 +122,43 @@ body {
     color: #848d95;
     display: inline-block;
 }
+
+.post_links {
+
+
+    text-decoration: none;
+    color: #07c;
+
+}
+
+.tags{
+
+    background-color: #E1ECF4;
+    color: #39739d;
+    text-decoration: none;
+    border-color: transparent;
+    padding: 5px;
+
+}
+
+.title_container {
+
+    vertical-align: top;
+    display: inline-block;
+    margin-left: 10px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
