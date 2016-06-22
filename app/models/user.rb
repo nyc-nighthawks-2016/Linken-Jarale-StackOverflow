@@ -8,4 +8,11 @@ class User < ActiveRecord::Base
   validates   :display_name, presence:true, length: { maximum: 50 }, uniqueness: true
   validates   :email, presence:true, uniqueness: true
   validates   :password, presence:true, length: { minimum: 8 }
+
+  def accepted_answers
+    self.answers.find_all { |ans| ans.best_answer==true }
+  end
+
+
+
 end
