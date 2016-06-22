@@ -1,3 +1,9 @@
 <div class="content">
   <p class="top_questions">Top Questions<p>
+  <% @last_ten_posts = Post.all.last(10) %>
+  <% @last_ten_posts.each do |post| %>
+    <article class ="single_post">
+      <br><p><%= post.title %></p>
+    </article>
+  <% end %>
 </div>
