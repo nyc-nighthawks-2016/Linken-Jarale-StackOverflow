@@ -17,6 +17,7 @@ body {
 .logo_question_answer{
     position: relative;
     max-width: 1075px;
+    right: 0px;
     margin: 0 auto;
 }
 
