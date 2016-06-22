@@ -1,8 +1,13 @@
-get '/user/new' do
+get '/users/new' do
   erb :'/users/new'
 end
 
-post '/user/new' do
-  User.create(params[:user])
-  redirect '/'
+post '/users/new' do
+  user = User.new(params[:user])
+  if user.save
+    redirect '/'
+  else
+    @errors = user.errors.full_messages
+    erb :'/users/new'
+  end
 end
