@@ -1,0 +1,93 @@
+body {
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size: 13px;
+    line-height: 1.3em;
+    color: #242729;
+    background: #FFF;
+    min-width: 1075px;
+    margin: 0 auto;
+}
+
+.navigation {
+    height: 25px;
+    display: block-inline;
+    margin: 0 auto;
+    position: relative;
+}
+
+.navigation_bar {
+    min-width: 1075px;
+    margin: 0 auto;
+    background-color: #333;
+}
+
+.stack_exchange {
+  margin-top:10px;
+}
+
+.navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navigation li {
+    float: right;
+}
+
+.navigation li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 12px 14px;
+    text-decoration: none;
+}
+
+.navigation li a:hover {
+    background-color: #111;
+}
+
+.search_bar {
+  margin-top:10px;
+}
+.logo_question_answer{
+    max-width: 1075px;
+    margin: 0 auto;
+}
+
+.button_on_top:hover{
+     background: #ff8533;
+}
+
+.button_on_top{
+    margin-right: 0px;
+    padding: 4px 10px 5px;
+    font-size: 13px;
+    background-color: #9fa6ad;
+    border: none;
+    color: white;
+    display: inline-block;
+}
+
+
+.stack_overflow_logo {
+    margin-top:30px;
+    width: 200px;
+    height: 50px;
+    display: inline-block;
+}
+
+.content {
+    position: relative;
+    top: 20px;
+    max-width: 1075px;
+    right: 0px;
+    margin: 0 auto;
+}
+
+.top_questions {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: normal;
+}
