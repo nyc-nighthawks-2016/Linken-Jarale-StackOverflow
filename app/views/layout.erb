@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
 <head>
   <!--
@@ -16,9 +16,32 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>Stackoverflow</title>
 </head>
 <body>
+  <div class ="navigation">
+      <ul class="navigation_bar">
+        <img class="stack_exchange" src="http://imageshack.com/a/img922/5568/tjNdCn.png">
+        <li><form class="search_bar" method="get" action="http://www.google.com/search">
+          <table border="0" align="center" cellpadding="0">
+          <tr><td>
+          <input type="text"   name="q" size="25" style="color:#808080;"
+          maxlength="255" value="Search Q&A"
+          onfocus="if(this.value==this.defaultValue)this.value=''; this.style.color='black';" onblur="if(this.value=='')this.value=this.defaultValue; "/>
+          <input type="submit" value="Go!" />
+          <input type="hidden" name="sitesearch" value="yoursite.com" /></td></tr>
+          </table>
+        </form></li>
+        <li><a href="/signup">sign up</a></li>
+        <li><a href="/login">log in</a></li>
+      </ul>
+  </div>
+
+  <div class="logo_question_answer">
+    <img class="stack_overflow_logo" src="http://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-logo.png?v=9c558ec15d8a">
+    <button class="button_on_top">Questions</button>
+    <button class="button_on_top">Ask A Question</button><br>
+  </div>
   <%= yield %>
 </body>
 </html>
