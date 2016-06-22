@@ -1,7 +1,7 @@
 def logged_in?
-  User.exists?(id: session['id'])
+  User.exists?(id: session['user_id'])
 end
 
 def current_user
-  User.find(session['id'])
+  User.find(session['user_id'])
 end
