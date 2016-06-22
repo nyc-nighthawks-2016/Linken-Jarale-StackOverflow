@@ -10,8 +10,7 @@ class User < ActiveRecord::Base
   validates   :password, presence:true, length: { minimum: 8 }
 
   def accepted_answers
-    count = self.answers.find_all { |ans| ans.best_answer==true }
-    count.length
+    self.answers.find_all { |ans| ans.best_answer==true }.length
   end
 
 
