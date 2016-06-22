@@ -1,0 +1,23 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.body %></p>
+
+
+
+<div id="answer-post">
+  <% if @answers %>
+    <% @answers.each do |answer| %>
+      <div id="answer"><%= answer %></div>
+    <% end %>
+  <% end %>
+</div>
+
+
+<% if logged_in? %>
+<form action="/answers" method="post">
+  <div class="container">
+    <h2> Your Answer </h2>
+    <textarea id="new-answer"></textarea>
+  </div>
+  <input type="submit" name="Post Answer">
+</form>
+<% end %>
