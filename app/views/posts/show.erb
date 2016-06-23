@@ -1,21 +1,23 @@
 <div class='content'>
 
   <h1><%= @post.title %></h1>
-  <p id='post-body'><%= @post.body %><br>
+  <p class='post-body'><%= @post.body %><br>
   </p>
-  <div>
-    <span style="margin-left:25px; margin-right:25px">
+
+
+  <div id="">
+    <span class="post-tags">
       <% if @post.tags %>
-      <strong>Tags:</strong>
        <% @post.tags.each do |tag| %>
          <a class="tags" href="/tags/<%= tag.id %>"><%= tag.name %></a>
         <% end %>
       <% end %>
-    </span>
+    </span><br><br>
+    <span class="add-comment"><a href="/comments/new?post_id=<%=@post.id %>">add a comment</a></span>
   </div>
-  <div>
-    <div>
-      <table class='vote-buttons' >
+
+  <div class="vote-buttons">
+      <table>
         <tr>
           <td>
             <form action="/votes/new" method="post">
@@ -27,7 +29,7 @@
           </td>
         </tr>
         <tr>
-          <td><%= @post.points %></td>
+          <td class='vote-count'><%= @post.points %></td>
         </tr>
         <tr>
           <td>
@@ -41,12 +43,15 @@
           </td>
         </tr>
       </table>
-    </div>
   </div>
+
+
     <p class="comments_for_a_post">
       <%= @comment %>
     </p>
-  <p class="add_comment_link"><a href="/comments/new?post_id=<%=@post.id %>">add a comment</a></p>
+
+
+
   <p style="font-size:20;"><% if @post.answers.length > 0 %>
     <%= @post.answers.length %> Answer<% if @post.answers.length > 1 %>s
     <% end %>
@@ -56,9 +61,70 @@
   <div class="single_post">
     <% if @answers %>
       <% @answers.each do |answer| %>
-        <p><div id="answer"><%= answer.body %></div></p>
+        <p class='post-body'><%= answer.body %></p>
+        <div >
+          <span class="post-tags">
+            <% if @post.tags %>
+             <% @post.tags.each do |tag| %>
+               <a class="tags" href="/tags/<%= tag.id %>"><%= tag.name %></a>
+              <% end %>
+            <% end %>
+          </span><br><br>
+          <span class="add-comment"><a href="/comments/new?post_id=<%=@post.id %>">add a comment</a></span>
+        </div>
+
+        <div class="vote-buttons">
+            <table>
+              <tr>
+                <td>
+                  <form action="/votes/new" method="post">
+                    <input type="hidden" name="value" value="1">
+                    <input type="hidden" name="votable_id" value="<%= @post.id %>">
+                    <input type="hidden" name="votable_type" value="<%= @post.class %>">
+                    <input type="image" src="http://imageshack.com/a/img921/7142/Nbdv9u.png" alt="Submit Form" />
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <td class='vote-count'><%= @post.points %></td>
+              </tr>
+              <tr>
+                <td>
+                  <form action="/votes/new" method="post">
+                    <input type="hidden" name="value" value="-1">
+                    <input type="hidden" name="votable_id" value="<%= @post.id %>">
+                    <input type="hidden" name="votable_type" value="<%= @post.class %>">
+                    <input type="image" src="http://imageshack.com/a/img922/9072/rgwXLl.png" alt="Submit Form" />
+                  </form>
+
+                </td>
+              </tr>
+            </table>
+        </div>
       <% end %>
     <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <% if logged_in? %>
