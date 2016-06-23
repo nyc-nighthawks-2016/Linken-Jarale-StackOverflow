@@ -4,19 +4,20 @@ get '/posts' do
 end
 
 get '/posts/new' do
+  @tags = Tag.all.sort{ |x,y| y.posts.length <=> x.posts.length }
   erb :'/posts/new'
 end
 
 post '/posts' do
-  post = current_user.posts.new(params[:post])
-  tags = params[:tags].split()
-  tags.each do |tag|
-    current_user.posts.find_or_create_by(name: tag)
-  end
-  if post.save
-    redirect '/posts/#{post.id}'
+  @post = current_user.posts.new(params[:post])
+  @tags = params[:tags]
+  @tags.map! { |tag| Tag.find_by(name:tag) }
+  @post.tags << @tags
+  if @post.save
+    redirect "/posts/#{@post.id}"
   else
-    @errors = post.errors.full_messages
+    @tags = Tag.all.sort{ |x,y| y.posts.length <=> x.posts.length }
+    @errors = @post.errors.full_messages
     erb :'/posts/new'
   end
 end
