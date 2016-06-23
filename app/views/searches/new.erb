@@ -4,12 +4,15 @@
   <% @words_in_body = post.body.split %>
   <% post.words_that_match = 0 %>
   <% post.save %>
+  <% @foo =[] %>
   <% @search_words.each do |searched_word| %>
-    <% @matches = @words_in_body.select do |word_in_body| %>
-      <% word_in_body == searched_word %>
+    <% @words_in_body.each do |word_in_body| %>
+      <% if word_in_body == searched_word %>
+        <% @foo << word_in_body %>
+        <% end %>
     <% end %>
   <% end %>
-  <% post.words_that_match = @matches.count %>
+  <% post.words_that_match = @foo.count %>
   <% post.save %>
 <% end %>
 
