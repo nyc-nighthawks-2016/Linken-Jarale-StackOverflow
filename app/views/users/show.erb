@@ -14,8 +14,10 @@
 
   <h4>Active Threads: </h4>
     <div class="content">
-        <% @last_ten_posts = Post.where(user_id: @user.id) %>
-        <% @last_ten_posts.each do |post| %>
+
+
+
+        <% @active_threads.each do |post| %>
           <br><article class ="single_post">
             <p>
               <section class="view_count">

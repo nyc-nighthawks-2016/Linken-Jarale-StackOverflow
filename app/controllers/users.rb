@@ -18,12 +18,9 @@ get '/users' do
   erb :'users/index'
 end
 
-get '/users/show' do
-  @user = current_user
-  erb :'users/show'
-end
-
 get '/users/:id' do
   @user = User.find(params[:id])
+  @answered_posts = @user.answers.map { |answer| answer.post }
+  @active_threads = @user.posts + @answered_posts
   erb :'users/show'
 end

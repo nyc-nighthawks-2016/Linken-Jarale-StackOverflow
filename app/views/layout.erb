@@ -31,7 +31,7 @@
         </form></li>
           <% if logged_in? %>
             <li><a href="/session/logout">log out</a>
-            <li><a href="/users/show"><%= current_user.display_name %></a>
+            <li><a href="/users/<%= current_user.id %>"><%= current_user.display_name %></a>
           <% else %>
             <li><a href="/session/login">log in</a></li>
             <li><a href="/users/new">sign up</a></li>
