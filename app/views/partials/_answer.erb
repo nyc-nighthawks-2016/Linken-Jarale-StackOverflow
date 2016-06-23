@@ -1,0 +1,36 @@
+<div class="single_post">
+        <p class='post-body'><%= answer.body %></p>
+        <div>
+          <span class="add-comment"><a href="/comments/new?post_id=<%= post.id %>">add a comment</a></span>
+        </div>
+
+        <div class="vote-buttons">
+            <table>
+              <tr>
+                <td>
+                  <form action="/votes/new" method="post">
+                    <input type="hidden" name="value" value="1">
+                    <input type="hidden" name="post_id" value="<%= post.id %>">
+                    <input type="hidden" name="votable_id" value="<%= answer.id %>">
+                    <input type="hidden" name="votable_type" value="<%= answer.class %>">
+                    <input type="image" src="http://imageshack.com/a/img921/7142/Nbdv9u.png" alt="Submit Form" />
+                  </form>
+                </td>
+              </tr>
+              <tr>
+                <td class='vote-count'><%= answer.points %></td>
+              </tr>
+              <tr>
+                <td>
+                  <form action="/votes/new" method="post">
+                    <input type="hidden" name="value" value="-1">
+                    <input type="hidden" name="post_id" value="<%= post.id %>">
+                    <input type="hidden" name="votable_id" value="<%= answer.id %>">
+                    <input type="hidden" name="votable_type" value="<%= answer.class %>">
+                    <input type="image" src="http://imageshack.com/a/img922/9072/rgwXLl.png" alt="Submit Form" />
+                  </form>
+
+                </td>
+              </tr>
+            </table>
+        </div>
