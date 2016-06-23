@@ -164,9 +164,10 @@ body {
 }
 
 #post-body {
-    margin-left: 25px;
+    margin-left: 75px;
     margin-right: 25px;
 }
+
 
 .view_container {
 
@@ -175,6 +176,7 @@ body {
     margin-left: 10px;
 
 }
+
 
 nav {
     max-width: 960px;
