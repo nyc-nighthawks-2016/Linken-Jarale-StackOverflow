@@ -13,7 +13,7 @@
         <% end %>
       <% end %>
     </span><br><br>
-    <span class="add-comment"><a href="/comments/new?post_id=<%=@post.id %>">add a comment</a></span>
+    <span class="post-add-comment"><a href="/comments/new?post_id=<%=@post.id %>">add a comment</a></span>
   </div>
 
   <div class="vote-buttons">
@@ -47,9 +47,7 @@
       </table>
   </div>
 
-    <p class="comments_for_a_post">
-      <%= @comment %>
-    </p>
+
   <p><% if @post.answers.length > 0 %>
     <%= @post.answers.length %> Answer<% if @post.answers.length > 1 %>s
     <% end %>
@@ -57,14 +55,26 @@
   </p>
 
 
+      <% if @post.comments %>
+        <% @post.comments.each do |comment| %>
+          <div class='comment-body'><%= comment.content %></div>
+        <% end %>
+      <% end %>
+
+
     <% if @answers %>
       <% @answers.each do |answer| %>
       <div class="single_post">
         <p class='post-body'><%= answer.body %></p>
-        <div>
+        <div class="answer-add-comment">
           <span class="add-comment"><a href="/comments/new?post_id=<%=@post.id %>">add a comment</a></span>
         </div>
 
+        <% if answer.comments %>
+          <% answer.comments.each do |comment| %>
+            <div class='comment-body'><%= comment.content %></div>
+          <% end %>
+        <% end %>
         <div class="vote-buttons">
             <table>
               <tr>
