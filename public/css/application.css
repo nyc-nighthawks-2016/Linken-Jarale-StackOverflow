@@ -117,6 +117,12 @@ body {
     display: inline-block;
 }
 
+.view_count {
+    text-align: center;
+    color: #848d95;
+    display: inline-block;
+}
+
 .vote_count {
     text-align: center;
     color: #848d95;
@@ -155,7 +161,13 @@ body {
 
 }
 
+.view_container {
 
+    vertical-align: top;
+    display: inline-block;
+    margin-left: 10px;
+
+}
 
 
 
