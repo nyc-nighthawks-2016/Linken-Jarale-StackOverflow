@@ -1,0 +1,17 @@
+<div class="content">
+<div class="comments">
+  <% if @errors %>
+    <ul>
+      <% @errors.each do |error| %>
+      <li><%= error %>
+      <% end %>
+    </ul>
+  <% end %>
+   <form action="/comments" method="post">
+      <input type="hidden" name="post_id" value="<%= "
+      <input type="text" placeholder="add a comment" name="content">
+      <INPUT type="submit" value="add comment">
+      </P>
+   </FORM>
+</div>
+</div>

@@ -6,13 +6,13 @@
   <div>
     <span style="margin-left:25px; margin-right:25px">
       <% if @post.tags %>
+      <strong>Tags:</strong>
        <% @post.tags.each do |tag| %>
-        <strong>Tags:</strong> <a class="tags" href="/tags/<%= tag.id %>"><%= tag.name %></a>
+         <a class="tags" href="/tags/<%= tag.id %>"><%= tag.name %></a>
         <% end %>
       <% end %>
     </span>
   </div>
-
   <div>
     <div>
       <table class='vote-buttons' >
@@ -22,7 +22,7 @@
               <input type="hidden" name="value" value="1">
               <input type="hidden" name="votable_id" value="<%= @post.id %>">
               <input type="hidden" name="votable_type" value="<%= @post.class %>">
-              <input type='submit' value="^">
+              <input type="image" src="http://imageshack.com/a/img921/7142/Nbdv9u.png" alt="Submit Form" />
             </form>
           </td>
         </tr>
@@ -35,16 +35,18 @@
               <input type="hidden" name="value" value="-1">
               <input type="hidden" name="votable_id" value="<%= @post.id %>">
               <input type="hidden" name="votable_type" value="<%= @post.class %>">
-              <input type='submit' value="v">
+              <input type="image" src="http://imageshack.com/a/img922/9072/rgwXLl.png" alt="Submit Form" />
             </form>
 
           </td>
         </tr>
       </table>
     </div>
-    <div id='post-body'><%= @post.body %></div>
   </div>
-
+    <p class="comments_for_a_post">
+      <%= @comment %>
+    </p>
+  <p class="add_comment_link"><a href="/comments/new?post_id=<%=@post.id %>">add a comment</a></p>
   <p style="font-size:20;"><% if @post.answers.length > 0 %>
     <%= @post.answers.length %> Answer<% if @post.answers.length > 1 %>s
     <% end %>
