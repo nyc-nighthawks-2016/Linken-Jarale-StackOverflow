@@ -14,16 +14,13 @@ post '/users' do
 end
 
 get '/users' do
-
   @all_users = User.all
   erb :'users/index'
 end
 
 get '/users/show' do
-
   @user = current_user
   erb :'users/show'
-
 end
 
 get '/users/:id' do
