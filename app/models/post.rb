@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
 
   validates :body, presence: true
   validates :title, presence: true, length: { maximum: 50 }
+  validates :tags, presence: true
 
   def points
     self.votes.reduce(0,:+)
