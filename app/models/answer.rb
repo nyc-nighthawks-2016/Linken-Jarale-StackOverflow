@@ -6,6 +6,7 @@ class Answer < ActiveRecord::Base
   belongs_to  :post
   has_one     :poster, { through: :post, source: :poster }
 
+  validates   :responder, uniqueness: { scope: :post }
   validates   :body, presence: true
-  validates   :best_answer, uniqueness: { scope: :post }
+  # validates   :best_answer
 end

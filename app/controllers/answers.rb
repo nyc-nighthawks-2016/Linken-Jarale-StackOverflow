@@ -5,6 +5,7 @@ post '/answers' do
     redirect "/posts/#{params[:post_id]}"
   else
     @errors = answer.errors.full_messages
+    @answers = @post.answers
     erb :'posts/show'
   end
 end
