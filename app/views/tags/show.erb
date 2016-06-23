@@ -1,0 +1,48 @@
+<div class='content'>
+
+  <h1><%= @tag.name %></h1>
+  <p id='tag-body'><%= @tag.description %><br>
+  </p>
+
+  <h4>Active Threads: </h4>
+    <div class="content">
+        <% if @posts %>
+        <% @posts.each do |post| %>
+          <br><article class ="single_post">
+            <p>
+              <section class="view_count">
+                <table>
+                  <tr>
+                    <td style="width:60px; text-align:center;">
+                      <div class="vote_count"><%= post.votes.count %><br>votes<br></div>
+                    </td>
+                    <td style="width:60px; text-align:center;">
+                      <div class="answer_count"><%= post.answers.count %>
+                      <% if post.answers.count == 1 %>
+                          <br>answer </br>
+                      <% else %>
+                          <br>answers</br>
+                      <%end%>
+                      </div>
+                    </td>
+                    <td style="width:60px; text-align:center;">
+                      <div class="view_count"><%= post.views %><br>views<br></div>
+                    </td>
+                  </tr>
+                </table>
+                </section>
+                <section class = "title_container">
+                  <div class="post_title">
+                    <a class='post_links' href = '/posts/<%= post.id %>'><%= post.title %></a></p></div><br>
+                    <span class="">
+                    <% if post.tags %>
+                     <% post.tags.each do |tag| %>
+                      <a class="tags" href="/tags/<%= tag.id %>"><%= tag.name %></a>
+                      <% end %>
+                    <% end %>
+                    </span></p>
+                </section>
+           </article>
+          <% end %>
+        <% end %>
+    </div>

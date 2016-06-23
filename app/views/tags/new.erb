@@ -1,11 +1,4 @@
-<div class='content'>
-  <h1>Tags:</h1>
-  <% @tags.each do |tag| %>
-    <a class="tags" href="/tags/<%= tag.id %>"><%= tag.name %></a>
-  <% end %>
-</div>
-
-<div id="tag-form">
+<div class="content">
   <form action="/tags" method="post">
     <table>
       <tr>
@@ -24,4 +17,3 @@
     <input type="submit" name="Create Tag">
   </form>
 </div>
-
