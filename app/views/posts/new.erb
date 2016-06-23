@@ -1,12 +1,6 @@
 <div class="content">
     <h2> Ask a Question </h2>
-  <% if @errors %>
-  <ul>
-    <% @errors.each do |error| %>
-    <li><%= error %>
-    <% end %>
-  </ul>
-  <% end %>
+  <%= erb :'/partials/_errors', layout: false, locals: { errors: @errors } %>
   <form action="/posts" method="post">
     <table>
       <tr>

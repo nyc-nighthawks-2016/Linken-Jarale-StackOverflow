@@ -10,6 +10,7 @@
     <span style="margin-left:25px; margin-right:25px">
       <strong>Tags:</strong>
       <% if @post.tags %>
+      <span style='font-weight:bold;'>Tags:</span>
        <% @post.tags.each do |tag| %>
          <a class="tags" href="/tags/<%= tag.id %>"><%= tag.name %></a>
         <% end %>
