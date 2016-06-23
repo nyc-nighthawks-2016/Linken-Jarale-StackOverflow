@@ -1,18 +1,22 @@
 
-5.times do
+10.times do
   User.create({
     display_name: Faker::Internet.user_name,
     email: Faker::Internet.email,
     password: '1234abcd'})
 
-  Post.create({
+  tag = Tag.create({
+    name: Faker::Lorem.word,
+    description: Faker::Lorem.sentence
+    })
+
+  post = Post.new({
     title: Faker::Book.title,
     body: Faker::Lorem.paragraph(2),
     user_id: rand(1..5)})
+    post.tags << tag
+    post.save
 
-end
-
-10.times do
   Comment.create({
     content: Faker::Hacker.say_something_smart,
     user_id: rand(1..5),
@@ -29,10 +33,4 @@ end
     body: Faker::Lorem.paragraph(2),
     user_id: rand(1..5),
     post_id: rand(1..5)})
-
-  post = Post.all.sample
-  post.tags.create({
-    name: Faker::Lorem.word,
-    description: Faker::Lorem.sentence
-    })
 end
