@@ -14,13 +14,16 @@ post '/users' do
 end
 
 get '/users' do
-
-  @users = User.all
+  @all_users = User.all
+  erb :'users/index'
 end
 
 get '/users/show' do
-
   @user = current_user
   erb :'users/show'
+end
 
+get '/users/:id' do
+  @user = User.find(params[:id])
+  erb :'users/show'
 end
