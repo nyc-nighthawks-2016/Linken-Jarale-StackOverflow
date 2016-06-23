@@ -13,6 +13,4 @@ class User < ActiveRecord::Base
     self.answers.find_all { |ans| ans.best_answer==true }.length
   end
 
-
-
 end

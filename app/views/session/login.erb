@@ -1,4 +1,7 @@
 <div class="content">
+
+  <%= erb :'/partials/_errors', layout: false, locals: { errors: @errors } %>
+
   <form method="post" action="/session">
     <table>
       <tr>
