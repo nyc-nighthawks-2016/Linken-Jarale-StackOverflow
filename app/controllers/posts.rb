@@ -24,12 +24,8 @@ end
 
 get '/posts/:id' do
   @post = Post.find(params[:id])
-<<<<<<< dabef312fda7129d1fe110aca82b43ed0edf7bf1
   @post.views += 1
   @post.save
-  @answer = @post.answers
-=======
   @answers = @post.answers
->>>>>>> added upvote buttons to posts
   erb :'/posts/show'
 end
