@@ -25,9 +25,15 @@
         <td>Tags:</td>
       </tr>
       <tr>
-        <td><input type="text" name="tags" style="width:100%;"></td>
+        <td>
+          <select multiple="multiple" name="tags[]" size='5' style="width:50%">
+            <% @tags.each do |tag| %>
+            <option value="<%= tag.name%>"><%= tag.name %></option>
+          <% end %>
+          </select>
+        </td>
       </tr>
     </table><br>
-    <input type="submit" name="Post Answer">
+    <input type="submit" value="Create Post">
     </form>
 </div>
