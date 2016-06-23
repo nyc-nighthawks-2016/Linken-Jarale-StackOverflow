@@ -12,4 +12,7 @@ class Post < ActiveRecord::Base
   def points
     self.votes.reduce(0) { |sum, vote| sum + vote.value }
   end
+
+  def age
+  end
 end
