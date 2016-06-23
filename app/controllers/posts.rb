@@ -18,6 +18,8 @@ end
 
 get '/posts/:id' do
   @post = Post.find(params[:id])
+  @post.views += 1
+  @post.save
   @answer = @post.answers
   erb :'/posts/show'
 end

@@ -15,6 +15,10 @@
         </div>
       </section>
 
+      <section class="view_container">
+        <div class="view_count"><%= post.views %><br>views<br></div>
+      </section>
+
       <section class = "title_container">
         <div class="post_title">
           <a class='post_links' href = 'posts/<%= post.id %>'><%= post.title %></a></p></div><br>
@@ -26,6 +30,7 @@
           <% end %>
           </span></p>
       </section>
+
       </article>
   <% end %>
 </div>
