@@ -1,23 +1,33 @@
-<h1><%= @post.title %></h1>
-<p><%= @post.body %></p>
+<div class='content'>
 
-
-
-<div id="answer-post">
-  <% if @answers %>
-    <% @answers.each do |answer| %>
-      <div id="answer"><%= answer %></div>
+  <h1><%= @post.title %></h1>
+  <p id='post-body'><%= @post.body %></p>
+  <p style="font-size:20;"><% if @post.answers.length > 0 %>
+    <%= @post.answers.length %> Answer
+    <% if @post.answers.length > 1 %>
+    s
     <% end %>
+  <% end %></p>
+
+
+
+
+  <div class="single_post">
+    <% if @answers %>
+      <% @answers.each do |answer| %>
+        <div id="answer"><%= answer %></div>
+      <% end %>
+    <% end %>
+  </div>
+
+
+  <% if logged_in? %>
+  <form action="/answers" method="post">
+    <div class="container">
+      <h2> Your Answer </h2>
+      <textarea id="new-answer"></textarea>
+    </div>
+    <input type="submit" name="Post Answer">
+  </form>
   <% end %>
 </div>
-
-
-<% if logged_in? %>
-<form action="/answers" method="post">
-  <div class="container">
-    <h2> Your Answer </h2>
-    <textarea id="new-answer"></textarea>
-  </div>
-  <input type="submit" name="Post Answer">
-</form>
-<% end %>
