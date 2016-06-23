@@ -220,7 +220,11 @@ nav {
     padding-bottom: 10px;
 }
 
-
+.user_row {
+    overflow: hidden;
+    width: 140px;
+    text-align: center;
+}
 
 
 
