@@ -150,15 +150,22 @@ body {
 }
 
 #post-body {
-    margin-left: 25px;
+    margin-left: 75px;
     margin-right: 25px;
 
 }
 
+#upvote {
 
+}
 
+#downvote {
 
+}
 
+.vote-buttons {
+    width: 10px;
+}
 
 
 

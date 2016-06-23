@@ -9,6 +9,6 @@ class Post < ActiveRecord::Base
   validates :title, presence: true, length: { maximum: 50 }
 
   def points
-    self.votes.reduce(0,:+)
+    self.votes.reduce(0) { |sum, vote| sum + vote.value }
   end
 end

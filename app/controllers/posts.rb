@@ -18,6 +18,6 @@ end
 
 get '/posts/:id' do
   @post = Post.find(params[:id])
-  @answer = @post.answers
+  @answers = @post.answers
   erb :'/posts/show'
 end
