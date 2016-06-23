@@ -1,0 +1,22 @@
+<div class='content'>
+<% @posts_to_search = Post.all %>
+<% @posts_to_search.each do |post| %>
+  <% @words_in_body = post.body.split %>
+  <% post.words_that_match = 0 %>
+  <% post.save %>
+  <% @search_words.each do |searched_word| %>
+    <% @matches = @words_in_body.select do |word_in_body| %>
+      <% word_in_body == searched_word %>
+    <% end %>
+  <% end %>
+  <% post.words_that_match = @matches.count %>
+  <% post.save %>
+<% end %>
+
+<% @top_matches = @posts_to_search.where.not(words_that_match: 0).order(words_that_match: :desc).limit(10) %>
+<% @top_matches.each do |matches| %>
+  <br>
+  <h1><%= matches.title %></h1>
+<% end %>
+
+</div>
