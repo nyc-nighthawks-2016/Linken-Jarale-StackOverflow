@@ -22,6 +22,7 @@
           <td>
             <form action="/votes/new" method="post">
               <input type="hidden" name="value" value="1">
+              <input type="hidden" name="post_id" value="<%= @post.id %>">
               <input type="hidden" name="votable_id" value="<%= @post.id %>">
               <input type="hidden" name="votable_type" value="<%= @post.class %>">
               <input type="image" src="http://imageshack.com/a/img921/7142/Nbdv9u.png" alt="Submit Form" />
@@ -35,6 +36,7 @@
           <td>
             <form action="/votes/new" method="post">
               <input type="hidden" name="value" value="-1">
+              <input type="hidden" name="post_id" value="<%= @post.id %>">
               <input type="hidden" name="votable_id" value="<%= @post.id %>">
               <input type="hidden" name="votable_type" value="<%= @post.class %>">
               <input type="image" src="http://imageshack.com/a/img922/9072/rgwXLl.png" alt="Submit Form" />
@@ -58,12 +60,13 @@
   <% end %>
   </p>
 
-  <div class="single_post">
+
     <% if @answers %>
       <% @answers.each do |answer| %>
+      <div class="single_post">
         <p class='post-body'><%= answer.body %></p>
         <div>
-          <span class="add-comment"><a href="/comments/new?post_id=<%=answer.id %>">add a comment</a></span>
+          <span class="add-comment"><a href="/comments/new?post_id=<%=@post.id %>">add a comment</a></span>
         </div>
 
         <div class="vote-buttons">
@@ -72,6 +75,7 @@
                 <td>
                   <form action="/votes/new" method="post">
                     <input type="hidden" name="value" value="1">
+                    <input type="hidden" name="post_id" value="<%= @post.id %>">
                     <input type="hidden" name="votable_id" value="<%= answer.id %>">
                     <input type="hidden" name="votable_type" value="<%= answer.class %>">
                     <input type="image" src="http://imageshack.com/a/img921/7142/Nbdv9u.png" alt="Submit Form" />
@@ -85,6 +89,7 @@
                 <td>
                   <form action="/votes/new" method="post">
                     <input type="hidden" name="value" value="-1">
+                    <input type="hidden" name="post_id" value="<%= @post.id %>">
                     <input type="hidden" name="votable_id" value="<%= answer.id %>">
                     <input type="hidden" name="votable_type" value="<%= answer.class %>">
                     <input type="image" src="http://imageshack.com/a/img922/9072/rgwXLl.png" alt="Submit Form" />
@@ -97,28 +102,7 @@
       <% end %>
     <% end %>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<%= erb :'/partials/_errors', layout: false, locals: { errors: @errors } %>
 
 <% if logged_in? %>
 <form action="/answers" method="post">
