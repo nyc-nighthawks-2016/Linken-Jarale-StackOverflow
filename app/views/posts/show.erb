@@ -4,9 +4,11 @@
   <p class='post-body'><%= @post.body %><br>
   </p>
 
-
   <div id="">
     <span class="post-tags">
+  <div>
+    <span style="margin-left:25px; margin-right:25px">
+      <strong>Tags:</strong>
       <% if @post.tags %>
        <% @post.tags.each do |tag| %>
          <a class="tags" href="/tags/<%= tag.id %>"><%= tag.name %></a>
@@ -101,6 +103,7 @@
         </div>
       <% end %>
     <% end %>
+  </div>
 
 <%= erb :'/partials/_errors', layout: false, locals: { errors: @errors } %>
 

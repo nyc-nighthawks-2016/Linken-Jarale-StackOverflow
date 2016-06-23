@@ -13,13 +13,13 @@ body {
     display: block-inline;
     margin: 0 auto;
     position: relative;
-    background-color: #2d2e2f;
+    background-color: #009900;
 }
 
 .navigation_bar {
     max-width: 960px;
     margin: 0 auto;
-    background-color: #2d2e2f;
+    background-color: #009900;
 }
 
 .stack_exchange {
@@ -71,9 +71,11 @@ body {
 
 .stack_overflow_logo {
     margin-top:30px;
-    width: 200px;
-    height: 50px;
+    width: 150px;
+    height: 150px;
     display: inline-block;
+    border: 5px solid green;
+    border-radius: 50px;
 }
 
 .logo{
@@ -147,8 +149,8 @@ body {
 
 .tags {
 
-    background-color: #E1ECF4;
-    color: #39739d;
+    background-color: #ebffe3;
+    color: #2fa94c;
     text-decoration: none;
     border-color: transparent;
     padding: 5px;
