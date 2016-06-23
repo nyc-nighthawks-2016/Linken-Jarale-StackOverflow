@@ -4,22 +4,22 @@ body {
     line-height: 1.3em;
     color: #242729;
     background: #FFF;
-    min-width: 1075px;
+    min-width: 500px;
     max-width: 2150px;
     margin: 0 auto;
 }
 
 .navigation {
-    height: 25px;
     display: block-inline;
     margin: 0 auto;
     position: relative;
+    background-color: #2d2e2f;
 }
 
 .navigation_bar {
-    min-width: 1075px;
+    max-width: 960px;
     margin: 0 auto;
-    background-color: #333;
+    background-color: #2d2e2f;
 }
 
 .stack_exchange {
@@ -52,9 +52,15 @@ body {
 .search_bar {
   margin-top:10px;
 }
-.logo_question_answer{
-    max-width: 1075px;
+.logo{
+    width: 200px;
     margin: 0 auto;
+}
+
+.question_answer {
+    width: 200px;
+    margin: 0 auto;
+    float: right;
 }
 
 .button_on_top:hover{
@@ -81,8 +87,8 @@ body {
 
 .content {
     position: relative;
-    width: 1075px;
-    margin: 0px auto;
+    max-width: 1075px;
+    margin: 2% auto;
 }
 
 .top_questions {
@@ -168,13 +174,11 @@ body {
 
 }
 
+nav {
+    max-width: 960px;
+    margin: 0px auto;
+}
 
-
-
-
-
-
-
-
-
-
+td {
+    padding: 5px;
+}
