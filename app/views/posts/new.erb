@@ -1,0 +1,33 @@
+<div class="content">
+    <h2> Ask a Question </h2>
+  <% if @errors %>
+  <ul>
+    <% @errors.each do |error| %>
+    <li><%= error %>
+    <% end %>
+  </ul>
+  <% end %>
+  <form action="/posts" method="post">
+    <table>
+      <tr>
+        <td>Title:</td>
+      </tr>
+      <tr>
+        <td><input type="text" name="post[title]" style="width:100%;"></td>
+      </tr>
+      <tr>
+        <td>Body:</td>
+      </tr>
+      <tr>
+        <td><textarea name="post[body]" rows="5" cols="50"></textarea>
+      </tr>
+      <tr>
+        <td>Tags:</td>
+      </tr>
+      <tr>
+        <td><input type="text" name="tags" style="width:100%;"></td>
+      </tr>
+    </table><br>
+    <input type="submit" name="Post Answer">
+    </form>
+</div>
