@@ -14,5 +14,23 @@ class Post < ActiveRecord::Base
   end
 
   def age
+    post_create = self.created_at
+    date = DateTime.now
+    day_age = date - post_create.to_date
+    age = date.to_time - post_create
+    post_time = Time.at(age).utc.strftime("%H:%M:%S")
+
+    if time_age == "24:00:00"
+      "#{day_age} days ago"
+    elsif
+      "#{post_time} hours ago"
+    elsif time_age[0] && time_age[1] == "0"
+      "#{post_time} minutes ago"
+    elsif time_age[2] && time_age[3] == "0"
+      "#{post_time} seconds ago"
+    end
+
   end
 end
+
+
