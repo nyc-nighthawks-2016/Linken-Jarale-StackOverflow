@@ -5,10 +5,8 @@
   </p>
 
   <div id="">
-    <span class="post-tags">
   <div>
-    <span style="margin-left:25px; margin-right:25px">
-      <strong>Tags:</strong>
+    <span class="post-tags">
       <% if @post.tags %>
        <% @post.tags.each do |tag| %>
          <a class="tags" href="/tags/<%= tag.id %>"><%= tag.name %></a>
@@ -49,13 +47,9 @@
       </table>
   </div>
 
-
     <p class="comments_for_a_post">
       <%= @comment %>
     </p>
-
-
-
   <p><% if @post.answers.length > 0 %>
     <%= @post.answers.length %> Answer<% if @post.answers.length > 1 %>s
     <% end %>
