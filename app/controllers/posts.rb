@@ -8,9 +8,13 @@ get '/posts/new' do
 end
 
 post '/posts' do
-  post = Post.new(params[:post])
+  post = current_user.posts.new(params[:post])
+  tags = params[:tags].split()
+  tags.each do |tag|
+    current_user.posts.find_or_create_by(name: tag)
+  end
   if post.save
-    redirect '/posts/:id'
+    redirect '/posts/#{post.id}'
   else
     @errors = post.errors.full_messages
     erb :'/posts/new'
