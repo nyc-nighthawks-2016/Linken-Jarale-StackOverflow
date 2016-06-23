@@ -1,5 +1,5 @@
 get '/votes/new' do
-binding.pry
+
 end
 
 
