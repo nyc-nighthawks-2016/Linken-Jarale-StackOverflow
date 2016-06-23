@@ -164,10 +164,11 @@ body {
 }
 
 #post-body {
-    margin-left: 25px;
+    margin-left: 75px;
     margin-right: 25px;
 }
 
+<<<<<<< dabef312fda7129d1fe110aca82b43ed0edf7bf1
 .view_container {
 
     vertical-align: top;
@@ -184,4 +185,24 @@ nav {
 td {
     padding: 5px;
 }
+=======
+#upvote {
+
+}
+
+#downvote {
+
+}
+
+.vote-buttons {
+    width: 10px;
+}
+
+
+
+
+
+
+
+>>>>>>> added upvote buttons to posts
 

@@ -1,6 +1,7 @@
 <div class='content'>
 
   <h1><%= @post.title %></h1>
+<<<<<<< dabef312fda7129d1fe110aca82b43ed0edf7bf1
   <p id='post-body'><%= @post.body %><br>
   </p>
   <div>
@@ -12,6 +13,44 @@
       <% end %>
     </span>
   </div>
+=======
+
+  <div>
+    <div>
+      <table class='vote-buttons' >
+        <tr>
+          <td>
+            <form action="/votes/new" method="post">
+              <input type="hidden" name="value" value="1">
+              <input type="hidden" name="votable_id" value="<%= @post.id %>">
+              <input type="hidden" name="votable_type" value="<%= @post.class %>">
+              <input type='submit' value="^">
+            </form>
+          </td>
+        </tr>
+        <tr>
+          <td><%= @post.points %></td>
+        </tr>
+        <tr>
+          <td>
+            <form action="/votes/new" method="post">
+              <input type="hidden" name="value" value="-1">
+              <input type="hidden" name="votable_id" value="<%= @post.id %>">
+              <input type="hidden" name="votable_type" value="<%= @post.class %>">
+              <input type='submit' value="v">
+            </form>
+
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div id='post-body'><%= @post.body %></div>
+  </div>
+
+
+
+
+>>>>>>> added upvote buttons to posts
   <p style="font-size:20;"><% if @post.answers.length > 0 %>
     <%= @post.answers.length %> Answer<% if @post.answers.length > 1 %>s
     <% end %>
@@ -21,10 +60,11 @@
   <div class="single_post">
     <% if @answers %>
       <% @answers.each do |answer| %>
-        <div id="answer"><%= answer %></div>
+        <p><div id="answer"><%= answer.body %></div></p>
       <% end %>
     <% end %>
 
+<<<<<<< dabef312fda7129d1fe110aca82b43ed0edf7bf1
 <% if logged_in? %>
 <form action="/answers" method="post">
   <div class="container">
@@ -32,6 +72,16 @@
     <input type="hidden" name="post_id" value="<%= @post.id %>">
     <textarea name="body" rows="5" cols="50"></textarea>
   </div>
+=======
+
+
+  <% if logged_in? %>
+  <form action="/answers" method="post">
+    <div class="container">
+      <h2> Your Answer </h2>
+      <textarea id="new-answer"></textarea>
+    </div>
+>>>>>>> added upvote buttons to posts
     <input type="submit" name="Post Answer">
   </form>
   <% end %>
