@@ -9,24 +9,20 @@
     <% end %>
   <% end %></p>
 
-
-
-
   <div class="single_post">
     <% if @answers %>
       <% @answers.each do |answer| %>
         <div id="answer"><%= answer %></div>
       <% end %>
     <% end %>
+
+<% if logged_in? %>
+<form action="/answers" method="post">
+  <div class="container">
+    <h2> Your Answer </h2>
+    <input type="hidden" name="post_id" value="<%= post.id %>"
+    <textarea name="body"></textarea>
   </div>
-
-
-  <% if logged_in? %>
-  <form action="/answers" method="post">
-    <div class="container">
-      <h2> Your Answer </h2>
-      <textarea id="new-answer"></textarea>
-    </div>
     <input type="submit" name="Post Answer">
   </form>
   <% end %>
