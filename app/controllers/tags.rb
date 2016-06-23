@@ -14,7 +14,7 @@ post '/tags' do
   if tag.save
     redirect "/tags/#{tag.id}"
   else
-    @errors = post.errors.full_messages
+    @errors = tag.errors.full_messages
     erb :'/tags/new'
   end
 end
