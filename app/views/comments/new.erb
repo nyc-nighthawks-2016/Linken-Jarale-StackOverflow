@@ -1,0 +1,17 @@
+<div class="comments">
+  <% if @errors %>
+    <ul>
+      <% @errors.each do |error| %>
+      <li><%= error %>
+      <% end %>
+    </ul>
+  <% end %>
+  <form action="/comments" method="post">
+      <table>
+        <tr>
+          <td><input type="text" name="content" style="width:100%;"></td>
+        </tr>
+      </table>
+      <input type="submit" name="add comment">
+  </form>
+</div>
