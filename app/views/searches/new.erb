@@ -1,29 +1,15 @@
 <div class='content'>
-  <% @posts_to_search = Post.all %>
-  <% @posts_to_search.each do |post| %>
-    <% @words_in_body = post.body.split %>
-    <% post.words_that_match = 0 %>
-    <% post.save %>
-    <% @same_words =[] %>
-    <% @search_words.each do |searched_word| %>
-      <% @words_in_body.each do |word_in_body| %>
-        <% if word_in_body == searched_word %>
-          <% @same_words << word_in_body %>
-          <% end %>
-      <% end %>
-    <% end %>
-      <% post.words_that_match = @same_words.count %>
-      <% post.save %>
-  <% end %>
-
-  <% if @same_words.empty? %>
+  <% if @posts.empty? %>
     <h1>Sorry no matches</h1>
   <% else %>
-      <% @top_matches = @posts_to_search.where.not(words_that_match: 0).order(words_that_match: :desc).limit(10) %>
-      <% @top_matches.each do |matches| %>
-        <br>
-        <h1><%= matches.title %></h1>
-      <% end %>
-  <% end %>
+    <h1>Top Matches</h1>
+    <% @posts.each do |matches| %>
+      <div class="matching_post">
+        <h2><a href="posts/ <%= matches.id %>"><%= matches.title %></h2>
+      </div>
+    <% end %>
+<% end %>
 
 </div>
+
+

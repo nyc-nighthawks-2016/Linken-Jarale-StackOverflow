@@ -1,9 +1,9 @@
 <div class='content'>
   <table class="user_table">
-  <tr class="user_column">
-    <% @all_users.each do |user| %>
-      <td class="user_row"><img src="http://imageshack.com/a/img924/8025/iw1b2O.png" height="42" width="42"><br><a href="users/<%= user.id %>"><%= user.display_name %></td>
-    <% end %>
-  </tr>
+    <tr class="user_column">
+      <% @all_users.each do |user| %>
+        <td class="user_row"><img src="https://www.drupal.org/files/profile_default.jpg" height="42" width="42"><br><a href="users/<%= user.id %>"><%= user.display_name %></td>
+      <% end %>
+    </tr>
 </table>
 </div>

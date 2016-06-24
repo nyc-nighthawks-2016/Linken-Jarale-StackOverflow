@@ -31,6 +31,27 @@ class Post < ActiveRecord::Base
     end
     time_string
   end
+
+  def self.search(string)
+    @posts_to_search = Post.all
+    @posts_to_search.each do |post|
+      @words_in_body = post.body.split
+      post.words_that_match = 0
+      post.save
+      @same_words =[]
+      string.each do |searched_word|
+        @words_in_body.each do |word_in_body|
+          if word_in_body == searched_word
+            @same_words << word_in_body
+          end
+        end
+      end
+    post.words_that_match = @same_words.count
+    post.save
+    end
+    @same_words
+  end
+
 end
 
 
