@@ -12,13 +12,13 @@
         <% end %>
     <% end %>
   <% end %>
+    <% post.words_that_match = @same_words.count %>
+    <% post.save %>
 <% end %>
 
 <% if @same_words.empty? %>
   <h1>Sorry no matches</h1>
-<% elsif @sample_words.empty? %>
-    <% post.words_that_match = @same_words.count %>
-    <% post.save %>
+<% else %>
     <% @top_matches = @posts_to_search.where.not(words_that_match: 0).order(words_that_match: :desc).limit(10) %>
     <% @top_matches.each do |matches| %>
       <br>
