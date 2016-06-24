@@ -1,5 +1,4 @@
 get '/comments/new' do
-  # binding.pry
   erb :'/comments/new'
 end
 
