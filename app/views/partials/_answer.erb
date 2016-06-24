@@ -1,43 +1,5 @@
-<!-- <div class="single_post">
-        <p class='post-body'><%= answer.body %></p>
-        <div>
-          <span class="add-comment"><a href="/comments/answer?answer_id=<%=answer.id %>">add a comment</a></span>
-        </div>
 
-        <div class="vote-buttons">
-            <table>
-              <tr>
-                <td>
-                  <form action="/votes/new" method="post">
-                    <input type="hidden" name="value" value="1">
-                    <input type="hidden" name="post_id" value="<%= post.id %>">
-                    <input type="hidden" name="votable_id" value="<%= answer.id %>">
-                    <input type="hidden" name="votable_type" value="<%= answer.class %>">
-                    <input type="image" src="/images/logo1.png" alt="Submit Form" />
-                  </form>
-                </td>
-              </tr>
-              <tr>
-                <td class='vote-count'><%= answer.points %></td>
-              </tr>
-              <tr>
-                <td>
-                  <form action="/votes/new" method="post">
-                    <input type="hidden" name="value" value="-1">
-                    <input type="hidden" name="post_id" value="<%= post.id %>">
-                    <input type="hidden" name="votable_id" value="<%= answer.id %>">
-                    <input type="hidden" name="votable_type" value="<%= answer.class %>">
-                    <input type="image" src="/images/logo2.png" alt="Submit Form" />
-                  </form>
-
-                </td>
-              </tr>
-            </table>
-        </div>
-      </div> -->
-
-
-        <div class="single_post">
+         <div class="single_post">
           <div class="vote-buttons">
               <table>
                 <tr>

@@ -1,9 +1,11 @@
 <div class="content">
 
-  <h3><%= @user.display_name %></h2>
+  <h3 id="display-name"><%= @user.display_name %></h2>
+    <div id="stats">
 
-      Stats:
-      <ul id= "">
+      <span style="color: #009900; font-size: 32px;"> Stats:</span>
+      <ul id="user-stats">
+
 
         <li>Posts Created: <%= @user.posts.length %></li>
         <li>Posts Answered: <%= @user.answers.length %></li>
@@ -11,6 +13,7 @@
         <li>Comments Created: <%= @user.comments.length %></li>
         <li>Total Votes Cast: <%= @user.votes.length %></li>
       </ul>
+    </div>
 
   <h4>Active Threads: </h4>
     <div class="content">
