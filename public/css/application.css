@@ -258,15 +258,26 @@ nav {
 
 }
 
+<<<<<<< 07670c32a6d8fd72c967d11a6b9cac33b5a5696b
 .post-comment-body {
 
     padding-top: 3%;
     padding-bottom: 25px;
+=======
+.matching_post {
+>>>>>>> Get search bar working.
     font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
     font-size: 13px;
     line-height: 1.3em;
     border-top: 1px solid #e4e6e8;
+<<<<<<< 07670c32a6d8fd72c967d11a6b9cac33b5a5696b
     padding-left: 25px;
+=======
+    border-bottom: 1px solid #e4e6e8;
+    margin-left: 100px;
+    padding-left: 25px;
+}
+>>>>>>> Get search bar working.
 
 }
 
