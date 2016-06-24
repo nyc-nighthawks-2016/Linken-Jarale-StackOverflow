@@ -40,3 +40,78 @@
     description: Faker::Lorem.sentence
   })
 end
+
+User.create! [
+  {
+   display_name: 'Master-o-Broccoli',
+   email: 'name@email.com',
+   password: '1234abcd'
+   },
+
+  {
+   display_name: 'Broc-o-lantern',
+   email: 'grrr@gmail.org',
+   password: '1234abcd'
+   },
+
+    {
+   display_name: 'Davey_Brocclet',
+   email: 'davey@hotmail.org',
+   password: '1234abcd'
+   },
+
+   {
+   display_name: 'Cauliflower_Rules',
+   email: 'fakeacct@geosites.com',
+   password: '1234abcd'
+   }
+ ]
+
+
+post = Post.new({
+  title: 'Broccoli saved my marriage',
+  body: 'My husband and I have been having marital problems until last week when he brought home a bunch of broccoli with him. I have never felt so loved in my life. Thank you broccoli.',
+  user_id: rand(1..4)})
+  post.tags << Tag.all.sample
+  post.save
+
+post1 = Post.new({
+  title: 'How do I grow a broccoli tree?',
+  body: "I've been wanting to plant my own broccoli tree. Is this how I do it?.",
+  user_id: rand(1..4)})
+  post1.tags << Tag.all.sample
+  post1.save
+
+post2 = Post.new({
+  title: 'Broccoli is stupid!',
+  body: 'Broccoli sucks and so does this site!.',
+  user_id: 4})
+  post2.tags << Tag.all.sample
+  post2.save
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
