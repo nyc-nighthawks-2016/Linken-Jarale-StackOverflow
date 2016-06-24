@@ -4,19 +4,26 @@
   <% @words_in_body = post.body.split %>
   <% post.words_that_match = 0 %>
   <% post.save %>
+  <% @same_words =[] %>
   <% @search_words.each do |searched_word| %>
-    <% @matches = @words_in_body.select do |word_in_body| %>
-      <% word_in_body == searched_word %>
+    <% @words_in_body.each do |word_in_body| %>
+      <% if word_in_body == searched_word %>
+        <% @same_words << word_in_body %>
+        <% end %>
     <% end %>
   <% end %>
-  <% post.words_that_match = @matches.count %>
-  <% post.save %>
 <% end %>
 
-<% @top_matches = @posts_to_search.where.not(words_that_match: 0).order(words_that_match: :desc).limit(10) %>
-<% @top_matches.each do |matches| %>
-  <br>
-  <h1><%= matches.title %></h1>
+<% if @same_words.empty? %>
+  <h1>Sorry no matches</h1>
+<% elsif @sample_words.empty? %>
+    <% post.words_that_match = @same_words.count %>
+    <% post.save %>
+    <% @top_matches = @posts_to_search.where.not(words_that_match: 0).order(words_that_match: :desc).limit(10) %>
+    <% @top_matches.each do |matches| %>
+      <br>
+      <h1><%= matches.title %></h1>
+    <% end %>
 <% end %>
 
 </div>
