@@ -1,21 +1,7 @@
+
 <div class='content'>
   <div id="post_wrapper">
     <h1><%= @post.title %></h1>
-    <p class='post-body'><%= @post.body %><br>
-    </p>
-
-    <div id="">
-    <div>
-      <span class="post-tags">
-        <% if @post.tags %>
-         <% @post.tags.each do |tag| %>
-           <a class="tags" href="/tags/<%= tag.id %>"><%= tag.name %></a>
-          <% end %>
-        <% end %>
-    </span><br><br>
-    <span class="post-add-comment"><a href="/comments/new?post_id=<%=@post.id %>">add a comment</a></span>
-  </div>
-
     <div class="vote-buttons">
         <table>
           <tr>
@@ -46,70 +32,82 @@
           </tr>
         </table>
     </div>
-
-  <p><% if @post.answers.length > 0 %>
-    <%= @post.answers.length %> Answer<% if @post.answers.length > 1 %>s
-    <% end %>
-    <% end %>
-    </p>
-  </div>
-
-      <% if @post.comments %>
-        <% @post.comments.each do |comment| %>
-          <div class='comment-body'><%= comment.content %></div>
-        <% end %>
-      <% end %>
-
-  <div id="answer_wrapper"
-    <% if @answers %>
-      <% @answers.each do |answer| %>
-      <div class="single_post">
-        <p class='post-body'><%= answer.body %></p>
-        <div class="answer-add-comment">
-          <span class="add-comment"><a href="/comments/new?post_id=<%=@post.id %>">add a comment</a></span>
-        </div>
-
-        <% if answer.comments %>
-          <% answer.comments.each do |comment| %>
-            <div class='comment-body'><%= comment.content %></div>
+    <div class='post-body'><%= @post.body %> <span class="created-by">- Created <%= @post.age %> by<a href="/users/<%= @post.poster.id %>"><%= @post.poster.display_name %></a><span><br>
+      <div class="post-tags">
+        <% if @post.tags %>
+         <% @post.tags.each do |tag| %>
+           <a class="tags" href="/tags/<%= tag.id %>"><%= tag.name %></a>
           <% end %>
         <% end %>
-        <div class="vote-buttons">
-            <table>
-              <tr>
-                <td>
-                  <form action="/votes/new" method="post">
-                    <input type="hidden" name="value" value="1">
-                    <input type="hidden" name="post_id" value="<%= @post.id %>">
-                    <input type="hidden" name="votable_id" value="<%= answer.id %>">
-                    <input type="hidden" name="votable_type" value="<%= answer.class %>">
-                    <input type="image" src="/images/logo1.png" alt="Submit Form" />
-                  </form>
-                </td>
-              </tr>
-              <tr>
-                <td class='vote-count'><%= answer.points %></td>
-              </tr>
-              <tr>
-                <td>
-                  <form action="/votes/new" method="post">
-                    <input type="hidden" name="value" value="-1">
-                    <input type="hidden" name="post_id" value="<%= @post.id %>">
-                    <input type="hidden" name="votable_id" value="<%= answer.id %>">
-                    <input type="hidden" name="votable_type" value="<%= answer.class %>">
-                    <input type="image" src="/images/logo2.png" alt="Submit Form" />
-                  </form>
-                  </td>
-                </tr>
-              </table>
-          </div>
+      </div>
+      <p class="post-add-comment"><a href="/comments/post?post_id=<%=@post.id %>">add a comment</a></p>
+      <div class="post-comments">
+        <% if @post.comments %>
+          <% @post.comments.each do |comment| %>
+            <div class='post-comment-body'><%= comment.content %> <span class="created-by">-Created <%= @post.age %> by
+      <a href="/users/<%= comment.commenter.id %>"><%= comment.commenter.display_name %></a></span></div>
+          <% end %>
         <% end %>
-      <% end %>
       </div>
     </div>
 
 
-<%= erb :'/partials/_errors', layout: false, locals: { errors: @errors } %>
+      <p><% if @post.answers.length > 0 %>
+        <%= @post.answers.length %> Answer<% if @post.answers.length > 1 %>s
+        <% end %>
+        <% end %>
+        </p>
+    </div>
+
+  <div id="answer_wrapper">
+
+      <% @answers.each do |answer| %>
+        <div class="single_post">
+          <div class="vote-buttons">
+              <table>
+                <tr>
+                  <td>
+                    <form action="/votes/new" method="post">
+                      <input type="hidden" name="value" value="1">
+                      <input type="hidden" name="post_id" value="<%= @post.id %>">
+                      <input type="hidden" name="votable_id" value="<%= answer.id %>">
+                      <input type="hidden" name="votable_type" value="<%= answer.class %>">
+                      <input type="image" src="/images/logo1.png" alt="Submit Form" />
+                    </form>
+                  </td>
+                </tr>
+                <tr>
+                  <td class='vote-count'><%= answer.points %></td>
+                </tr>
+                <tr>
+                  <td>
+                    <form action="/votes/new" method="post">
+                      <input type="hidden" name="value" value="-1">
+                      <input type="hidden" name="post_id" value="<%= @post.id %>">
+                      <input type="hidden" name="votable_id" value="<%= answer.id %>">
+                      <input type="hidden" name="votable_type" value="<%= answer.class %>">
+                      <input type="image" src="/images/logo2.png" alt="Submit Form" />
+                    </form>
+                    </td>
+                  </tr>
+                </table>
+            </div>
+            <p class='post-body'><%= answer.body %> <span class="created-by">- Created <%= @post.age %> by <a href="/users/<%= answer.responder.id %>"><%= answer.responder.display_name %></a></span><br>
+              <span class="add-comment"><a href="/comments/answer?answer_id=<%=answer.id %>">add a comment</a></span>
+            </p>
+            <div class="answer-add-comment">
+            </div>
+            <% if answer.comments %>
+              <% answer.comments.each do |comment| %>
+              <div class='comment-body'><%= comment.content %> <span class ="created-by">- Created <%= @post.age %> by <a href="/users/<%= comment.commenter.id %>"><%= comment.commenter.display_name %></a></span></div>
+              <% end %>
+            <% end %>
+        </div>
+      <% end %>
+  </div>
+
+
+  <%= erb :'/partials/_errors', layout: false, locals: { errors: @errors } %>
 
   <% if logged_in? %>
   <form id="answer_form" action="/answers" method="post">
@@ -121,5 +119,39 @@
       <input type="submit" name="Post Answer">
     </form>
     <% end %>
-  </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

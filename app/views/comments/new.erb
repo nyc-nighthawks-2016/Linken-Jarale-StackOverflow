@@ -7,11 +7,29 @@
       <% end %>
     </ul>
   <% end %>
-   <form action="/comments" method="post">
-      <input type="hidden" name="post_id" value="<%= "
-      <input type="text" placeholder="add a comment" name="content">
-      <INPUT type="submit" value="add comment">
-      </P>
-   </FORM>
+
+<% if @post %>
+  <form id="" action="/comments/post" method="post">
+    <div class="container">
+      <h2> Your Comment</h2>
+      <input type="hidden" name="post_id" value="<%= @post.id %>">
+      <textarea name="content" rows="5" cols="50"></textarea>
+    </div>
+      <input type="submit" name="Post Comment">
+    </form>
+<% end %>
+
+
+<% if @answer %>
+  <form id="" action="/comments/answer" method="post">
+    <div class="container">
+      <h2> Your Comment</h2>
+      <input type="hidden" name="answer_id" value="<%= @answer.id %>">
+      <textarea name="content" rows="5" cols="50"></textarea>
+    </div>
+      <input type="submit" name="Post Comment">
+    </form>
+<% end %>
+
 </div>
 </div>

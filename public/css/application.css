@@ -1,3 +1,13 @@
+
+
+
+
+
+
+
+
+
+
 body {
     font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
     font-size: 13px;
@@ -167,14 +177,13 @@ body {
 }
 
 .post-body {
-    margin-left: 100px;
-    margin-right: 25px;
-    padding-top: 50px;
-    padding-bottom: 25px;
     width: 45%;
     font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
     font-size: 15px;
     line-height: 1.3em;
+    display:inline-block;
+    vertical-align: top;
+    margin-left: 20px;
 }
 
 
@@ -194,20 +203,15 @@ nav {
 
 
 .vote-buttons {
-    width: 5px;
-    margin-bottom: 50px;
-    display: inline-table;
-    margin-top: -120px;
+    display: inline-block;
+    overflow:none;
+    width: 31px;
 }
 
 
 .post-tags {
-
-    vertical-align: top;
-    width: 45%;
-    margin-left: 100px;
-
-
+    margin-top: 10px;
+    width: 70%;
 
 }
 
@@ -216,9 +220,7 @@ nav {
     font-size: 13px;
     vertical-align: top;
     width: 45%;
-    margin-left: 100px;
     margin-bottom: 10px;
-
 
 }
 
@@ -227,9 +229,7 @@ nav {
     font-size: 13px;
     vertical-align: top;
     width: 45%;
-    margin-left: 100px;
     margin-bottom: 10px;
-
 
 }
 
@@ -247,24 +247,33 @@ nav {
 
 .comment-body {
 
-
-    padding-top: 50px;
+    padding-top: 3%;
     padding-bottom: 25px;
     font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
     font-size: 13px;
     line-height: 1.3em;
     border-top: 1px solid #e4e6e8;
-    margin-left: 100px;
+    margin-left: 50px;
     padding-left: 25px;
 
 }
 
+.post-comment-body {
 
+    padding-top: 3%;
+    padding-bottom: 25px;
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size: 13px;
+    line-height: 1.3em;
+    border-top: 1px solid #e4e6e8;
+    padding-left: 25px;
 
+}
 
+.created-by {
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size: 11px;
+    color: #9494b8;
 
-
-
-
-
+}
 

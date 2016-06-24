@@ -1,5 +1,7 @@
 $(document).ready(function() {
- $('#answer_form').on('submit',function(e) {
+
+ $('#answer_form').on('submit', function(e) {
+  // debugger;
   e.preventDefault();
   $.ajax({
     url:$( this ).attr('action'),
