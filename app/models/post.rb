@@ -41,7 +41,7 @@ class Post < ActiveRecord::Base
       @same_words =[]
       string.each do |searched_word|
         @words_in_body.each do |word_in_body|
-          if word_in_body == searched_word
+          if word_in_body.upcase == searched_word.upcase
             @same_words << word_in_body
           end
         end
