@@ -1,29 +1,48 @@
 <div class='content'>
-<% @posts_to_search = Post.all %>
-<% @posts_to_search.each do |post| %>
-  <% @words_in_body = post.body.split %>
-  <% post.words_that_match = 0 %>
-  <% post.save %>
-  <% @same_words =[] %>
-  <% @search_words.each do |searched_word| %>
-    <% @words_in_body.each do |word_in_body| %>
-      <% if word_in_body == searched_word %>
-        <% @same_words << word_in_body %>
-        <% end %>
-    <% end %>
-  <% end %>
-    <% post.words_that_match = @same_words.count %>
-    <% post.save %>
-<% end %>
+  <% if @posts.empty? %>
+    <h1>Sorry no matches</h1>
+  <% else %>
+    <h1>Top Matches</h1>
+    <% @posts.each do |post| %>
+    <br><article class ="single_post">
+      <p>
+      <section class="view_count">
+      <table>
+        <tr>
+          <td style="width:60px; text-align:center;">
+            <div class="vote_count"><%= post.points %><br>votes<br></div>
+          </td>
+          <td style="width:60px; text-align:center;">
+            <div class="answer_count"><%= post.answers.count %>
+            <% if post.answers.count == 1 %>
+                <br>answer </br>
+            <% else %>
+                <br>answers</br>
+            <%end%>
+            </div>
+          </td>
+          <td style="width:60px; text-align:center;">
+            <div class="view_count"><%= post.views %><br>views<br></div>
+          </td>
+        </tr>
+      </table>
+      </section>
+      <section class = "title_container">
+        <div class="post_title">
+          <a class='post_links' href = 'posts/<%= post.id %>'><%= post.title %></a></p></div><br>
+          <span class="">
+          <% if post.tags %>
+           <% post.tags.each do |tag| %>
+            <a class="tags" href="/tags/<%= tag.id %>"><%= tag.name %></a>
+            <% end %>
+          <% end %>
+          </span></p>
+      </section>
 
-<% if @same_words.empty? %>
-  <h1>Sorry no matches</h1>
-<% else %>
-    <% @top_matches = @posts_to_search.where.not(words_that_match: 0).order(words_that_match: :desc).limit(10) %>
-    <% @top_matches.each do |matches| %>
-      <br>
-      <h1><%= matches.title %></h1>
-    <% end %>
+      </article>
+  <% end %>
 <% end %>
 
 </div>
+
+
