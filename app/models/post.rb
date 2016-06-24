@@ -22,12 +22,12 @@ class Post < ActiveRecord::Base
     time_string = ''
     if post_time == "24:00:00"
       time_string = "#{day_age} days ago"
-    elsif
-      time_string = "#{post_time[0..1].gsub(/^0/,'')} hours ago"
-    elsif post_time[0] && post_time[1] == "0"
-      time_string = "#{post_time[2..3].gsub(/^0/,'')} minutes ago"
     elsif post_time[2] && post_time[3] == "0"
       time_string = "#{post_time[4..5].gsub(/^0/,'')} seconds ago"
+    elsif post_time[0] && post_time[1] == "0"
+      time_string = "#{post_time[2..3].gsub(/^0/,'')} minutes ago"
+    else
+      time_string = "#{post_time[0..1].gsub(/^0/,'')} hours ago"
     end
     time_string
   end
